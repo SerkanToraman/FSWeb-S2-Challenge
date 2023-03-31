@@ -202,7 +202,7 @@ for (let i=0;i<symbol.length;i++){
 
 return stringDizi;
 }
-console.log(emojileriDonustur('Selam :) :O nasılsın :D bugünkü olay çok komikti :p ama sonra çok şaşırdık :o biraz da üzüldük :( ama yine de seviliyorsun <3',emojiler))
+console.log(emojileriDonustur('Selam :) nasılsın :D bugünkü olay çok komikti :p ama sonra çok şaşırdık :o biraz da üzüldük :( ama yine de seviliyorsun <3',emojiler))
 
 // var emojiler = { 
 // 	":)": "🙂",
