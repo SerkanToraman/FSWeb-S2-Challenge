@@ -75,18 +75,22 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+console.log("Hello World!")
 
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+console.log("Hello World!",'Hello')
 
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
+
+
 var bircumle;
 
-/* kodlar buraya */
+bircumle = cumleKur("Ben ","iyi ","bir"," yazılımcı"," olacağım!")
+
+console.log(bircumle);
 
 
 
@@ -104,10 +108,12 @@ var bircumle;
 	*/
 	
 
-function cumlelereDonustur(/* kodlar buraya */ ){
-	/* kodlar buraya */
+function cumlelereDonustur(arr,ayrac = "," ){
+	let cumleArr = arr.map((ilksira)=>{return ilksira.join(ayrac)});
+	return cumleArr;
 }
 
+	console.log('Gorev 1 - cumlelereDonustur',cumlelereDonustur(cumleler));
 
 
 /* GÖREV 2:
@@ -120,9 +126,12 @@ function cumlelereDonustur(/* kodlar buraya */ ){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(/* kodlar buraya */ ){
-	/* kodlar buraya */ 
+function paragrafOlustur(arr,cumleKurCb,cumlelereDonusturCb ){
+	let cumlelerListe = cumlelereDonusturCb(arr," ");
+	let paragraf = cumleKurCb(cumlelerListe[1],cumlelerListe[3],cumlelerListe[5],cumlelerListe[7],cumlelerListe[9])
+	return paragraf;
 }
+console.log('Gorev 2 - paragrafOlustur',paragrafOlustur(cumleler,cumleKur,cumlelereDonustur));
 
 
 /* 	GÖREV 3:
@@ -130,18 +139,20 @@ function paragrafOlustur(/* kodlar buraya */ ){
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
  */
 //3a çözümü
-/* kodlar buraya */
 
+meyveler.pop();
+meyveler.shift();
 
-
-
+console.log('Gorev 3a',meyveler);
 
  
 /* 			3b.  Bir tavşan ve bir kirpi arkadaşlar sebzeler dizimizin peşine düştü. Tavşan => 🐇 , Kirpi=> 🦔 , Tavşanla kirpi sebzeleri ele geçirmek için bir plan kurdular. Tavşan diziye önden saldıracak, kirpi ise arkalarından dolaşacak. Varsayalım ki arkadaşların planları başarılı oldu. Tavşanı dizinin ilk elemanına 🐇, Kirpiyi dizinin son elemanına ekleyin 🦔 
 */
 //3b çözümü
-/* kodlar buraya */
+sebzeler.push('🦔');
+sebzeler.unshift('🐇');
 
+console.log('Gorev 3b',sebzeler);
 
 
 
@@ -155,6 +166,10 @@ function paragrafOlustur(/* kodlar buraya */ ){
 /* kodlar buraya */
 
 var manav;
+
+manav = meyveler.concat(sebzeler);
+
+console.log('Gorev 3c',manav);
 
 
 
@@ -170,11 +185,33 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
+function emojileriDonustur(string,emojilerNesne){
+let stringDizi = string;
+let emojis = Object.values(emojilerNesne);
+let symbol = Object.keys(emojilerNesne);
+let symbolToUpperCase = symbol.map(element=>element.toUpperCase());
+console.log(symbolToUpperCase);
 
+for (let i=0;i<symbol.length;i++){
+	if(stringDizi.includes(symbol[i])){
+		stringDizi = stringDizi.replaceAll(symbol[i],emojis[i])
+	}else if (stringDizi.includes(symbolToUpperCase[i])){
+		stringDizi = stringDizi.replaceAll(symbolToUpperCase[i],emojis[i])
+	}
 }
 
+return stringDizi;
+}
+console.log(emojileriDonustur('Selam :) :O nasılsın :D bugünkü olay çok komikti :p ama sonra çok şaşırdık :o biraz da üzüldük :( ama yine de seviliyorsun <3',emojiler))
+
+// var emojiler = { 
+// 	":)": "🙂",
+// 	":(": "😔",
+// 	":d": "😁",
+// 	":p": "😛",
+// 	":o": "😱",
+// 	"<3": "❤️",
+// 	}
 
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
